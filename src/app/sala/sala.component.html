@@ -1,0 +1,33 @@
+<div class="card m-2 border-primary">
+    <div class="card-body">
+      <h5 class="card-title">Sala de Chat</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Conversación</h6>
+      
+      <div class="chat-window mb-3 p-2 border rounded" style="height: 300px; overflow-y: auto;">
+        @for (msg of mensajes; track $index) {
+            <div [ngClass]="{'mensaje-izquierda': msg.user === 'Pepe', 'mensaje-derecha': msg.user === 'María'}"
+            class="d-flex mb-2">
+            <div class="p-2 rounded-pill text-white" [ngStyle]="{'background': msg.user === 'Pepe' ? 'linear-gradient(90deg, orange, yellow)' : 'linear-gradient(90deg, navy, lightblue)'}">
+                <strong>{{ msg.user }}:</strong> {{ msg.text }}
+                <small class="d-block text-white-50">{{ msg.timestamp | date: 'short' }}</small>
+              </div>
+            
+            </div>
+        }
+      </div>
+  
+      <div class="row">
+        <div class="col">
+          <label for="mensajePepe">Mensaje de Pepe</label>
+          <textarea id="mensajePepe" class="form-control" [(ngModel)]="mensajePepe"></textarea>
+          <button class="btn btn-primary mt-2" (click)="enviarMensaje('Pepe')">Enviar</button>
+        </div>
+        <div class="col">
+          <label for="mensajeMaria">Mensaje de María</label>
+          <textarea id="mensajeMaria" class="form-control" [(ngModel)]="mensajeMaria"></textarea>
+          <button class="btn btn-primary mt-2" (click)="enviarMensaje('María')">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,10 @@
+.mensaje-usuario {
+    background: linear-gradient(90deg, orange, yellow);
+    max-width: 80%;
+  }
+  
+  .mensaje-otro {
+    background: linear-gradient(90deg, navy, lightblue);
+    max-width: 80%;
+  }
+  

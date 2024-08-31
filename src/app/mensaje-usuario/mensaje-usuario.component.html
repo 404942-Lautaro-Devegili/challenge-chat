@@ -1,0 +1,22 @@
+<div class="card m-2 border-success">
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">Usuario: {{ usuario }}</h6>
+      
+      <div class="chat-window mb-3 p-2 border rounded" style="height: 200px; overflow-y: auto;">
+        <div *ngFor="let msg of mensajes" class="d-flex flex-column align-items-start">
+          
+          <div [ngClass]="{'mensaje-usuario': msg.user === usuario, 'mensaje-otro': msg.user !== usuario}" class="p-2 mb-1 rounded-pill text-white">
+            <strong>{{ msg.user }}:</strong> {{ msg.text }}
+          </div>
+          <small class="text-muted">{{ msg.timestamp | date: 'short' }}</small>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="mensaje-{{usuario}}">Mensaje</label>
+        <textarea class="form-control" id="mensaje-{{usuario}}" rows="2" [(ngModel)]="mensaje"></textarea>
+      </div>
+      <button class="btn btn-primary mt-2" (click)="enviarMensaje()">Enviar</button>
+    </div>
+  </div>
+  

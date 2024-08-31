@@ -1,0 +1,7 @@
+.mensaje-izquierda {
+    justify-content: flex-start;
+  }
+  
+  .mensaje-derecha {
+    justify-content: flex-end;
+  }
